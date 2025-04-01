@@ -3,6 +3,7 @@
 use App\Models\Faq;
 use App\Models\Skin;
 use App\Models\Contact;
+use App\Models\Pricing;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +16,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/pricing', function () {
-    return view('pricing', ['faq' => Faq::all()]);
+    return view('pricing', ['faq' => Faq::all()], ['pricing' => Pricing::all()]);
 });
 
 Route::get('/showroom', function () {

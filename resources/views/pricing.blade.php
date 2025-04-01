@@ -12,12 +12,13 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Custom Skin -->
+                @foreach ($pricing as $Pricing )
                 <div class="bg-yellow-200 rounded-lg shadow-lg overflow-hidden border border-gray-800">
                     <div class="px-6 py-8">
-                        <h3 class="text-gray-800 font-medium text-lg">Custom Skin</h3>
-                        <p class="text-grey-800 mt-2">Request you own custom skin.</p>
+                        <h3 class="text-gray-800 font-medium text-lg">{{ $Pricing['price_title'] }}</h3>
+                        <p class="text-grey-800 mt-2">{{ $Pricing['price_desc'] }}</p>
                         <div class="mt-4 flex items-baseline">
-                            <span class="text-5xl font-extrabold tracking-tight text-gray-900">Rp20.000</span>
+                            <span class="text-5xl font-extrabold tracking-tight text-gray-900">{{ $Pricing['price'] }}</span>
                             <div class="ml-1 flex flex-col">
                                 <span class="text-sm font-medium text-grey-800">Rp</span>
                                 <span class="text-sm font-medium text-grey-800">per request</span>
@@ -29,7 +30,7 @@
                         </a>
                     </div>
                     <div class="border-t border-gray-800 px-6 py-8">
-                        <h4 class="text-sm font-medium text-gray-900 mb-4">Start selling with:</h4>
+                        <h4 class="text-sm font-medium text-gray-900 mb-4">You will get:</h4>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -40,7 +41,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">Custom domains</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -51,7 +52,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">Edge content delivery</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -62,7 +63,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">Advanced analytics</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -73,7 +74,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">Quarterly workshops</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -84,203 +85,12 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">Single sign-on (SSO)</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Priority phone support</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Environtment -->
-                <div
-                    class="bg-yellow-200 rounded-lg shadow-lg overflow-hidden border border-gray-800 transform md:scale-105 z-10">
-                    <div class="px-6 py-8">
-                        <h3 class="text-gray-800 font-medium text-lg">Environtment</h3>
-                        <p class="text-grey-800 mt-2">Environtment mod for your roleplay.</p>
-                        <div class="mt-4 flex items-baseline">
-                            <span class="text-5xl font-extrabold tracking-tight text-gray-900">Rp20.000+</span>
-                            <div class="ml-1 flex flex-col">
-                                <span class="text-sm font-medium text-grey-800">Rp</span>
-                                <span class="text-sm font-medium text-grey-800">per request</span>
-                            </div>
-                        </div>
-                        <a href="/login"
-                            class="mt-6 w-full bg-gray-800 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 inline-block text-center">
-                            Order Now
-                        </a>
-                    </div>
-                    <div class="border-t border-gray-800 px-6 py-8">
-                        <h4 class="text-sm font-medium text-gray-900 mb-4">Start selling with:</h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Custom domains</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Edge content delivery</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Advanced analytics</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Quarterly workshops</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Single sign-on (SSO)</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Priority phone support</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Headswap/Retext -->
-                <div class="bg-yellow-200 rounded-lg shadow-lg overflow-hidden border border-gray-800">
-                    <div class="px-6 py-8">
-                        <h3 class="text-gray-800 font-medium text-lg">Retexture & Headswap</h3>
-                        <p class="text-grey-800 mt-2">Retexture or headswap your skin.</p>
-                        <div class="mt-4 flex items-baseline">
-                            <span class="text-5xl font-extrabold tracking-tight text-gray-900">Rp10.000</span>
-                            <div class="ml-1 flex flex-col">
-                                <span class="text-sm font-medium text-grey-800">Rp</span>
-                                <span class="text-sm font-medium text-grey-800">per item</span>
-                            </div>
-                        </div>
-                        <a href="/login"
-                            class="mt-6 w-full bg-gray-800 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 inline-block text-center">
-                            Order Now
-                        </a>
-                    </div>
-                    <div class="border-t border-gray-800 px-6 py-8">
-                        <h4 class="text-sm font-medium text-gray-900 mb-4">Start selling with:</h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Custom domains</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Edge content delivery</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Advanced analytics</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Quarterly workshops</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Single sign-on (SSO)</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <svg class="h-5 w-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="ml-3 text-sm text-gray-700">Priority phone support</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- FAQ Section with Accordion -->
@@ -325,7 +135,7 @@
                         class="px-6 py-12 sm:px-12 lg:py-16 lg:px-16 flex flex-col lg:flex-row items-center justify-between">
                         <div>
                             <h2 class="text-3xl font-extrabold text-gray-900">Ready to get started?</h2>
-                            <p class="mt-4 text-lg text-grey-800">Order now and get your own skin.</p>
+                            <p class="mt-4 text-lg text-grey-800">Order now and get your own mods.</p>
                         </div>
                         <div class="mt-8 lg:mt-0 lg:ml-8">
                             <a href="login"

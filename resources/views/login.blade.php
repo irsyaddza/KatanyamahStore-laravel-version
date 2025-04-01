@@ -1,11 +1,9 @@
 <x-layout>
-    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mb-16">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <!-- Logo with glow effect -->
             <div class="relative w-fit mx-auto">
                 <div class="absolute inset-0 bg-yellow-400 rounded-full blur-md opacity-40 animate-pulse"></div>
-                <img class="relative z-10 mx-auto h-14 w-auto"
-                    src="https://imgur.com/a/HUkwFCC.png" alt="KatanyamahStore">
             </div>
             <h2 class="mt-10 text-center text-2xl font-bold tracking-tight text-gray-800">Sign in to your account</h2>
         </div>

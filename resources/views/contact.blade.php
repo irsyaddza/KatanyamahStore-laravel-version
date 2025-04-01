@@ -17,7 +17,7 @@
                 <div>
                     <h2 class="text-2xl font-extrabold text-gray-900">Get in touch</h2>
                     <p class="mt-4 text-lg text-gray-900">
-                        Have questions about our services or want to collaborate? Fill out the form or contact
+                        Have questions about our services or want to collaborate? Contact
                         us directly using the information below.
                     </p>
                     
