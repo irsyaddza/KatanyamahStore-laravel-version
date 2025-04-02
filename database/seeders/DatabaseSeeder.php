@@ -4,10 +4,12 @@ namespace Database\Seeders;
 
 use App\Models\Faq;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Skin;
 use App\Models\Team;
 use App\Models\User;
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Pricing;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -75,6 +77,38 @@ class DatabaseSeeder extends Seeder
             'team_img' => 'https://www.upload.ee/image/17922172/skin7.png',
         ]);
 
+        Skin::Factory(100)->create();
+        Faq::Factory(10)->create();
 
+        Pricing::create([
+            'price_title' => 'Custom Skin',
+            'price_desc' => 'Make your own custom skin',
+            'price' => 'Rp20.000',
+            'price_feature1' => 'Full request',
+            'price_feature2' => 'Cheap price',
+            'price_feature3' => 'Good quality',
+            'price_feature4' => 'Warranty',
+            'price_feature5' => 'Fast respons',
+        ]);
+        Pricing::create([
+            'price_title' => 'Environtment',
+            'price_desc' => 'Make your own custom skin',
+            'price' => 'Rp20.000+',
+            'price_feature1' => 'Full request',
+            'price_feature2' => 'Cheap price',
+            'price_feature3' => 'Good quality',
+            'price_feature4' => 'Warranty',
+            'price_feature5' => 'Fast respons',
+        ]);
+        Pricing::create([
+            'price_title' => 'Retexture & Headswap',
+            'price_desc' => 'Make your own custom skin',
+            'price' => 'Rp10.000',
+            'price_feature1' => 'Full request',
+            'price_feature2' => 'Cheap price',
+            'price_feature3' => 'Good quality',
+            'price_feature4' => 'Warranty',
+            'price_feature5' => 'Fast respons',
+        ]);
     }
 }
