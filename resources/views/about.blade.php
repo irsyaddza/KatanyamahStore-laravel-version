@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <div class="bg-yellow-400 py-12">
+    <div class="mx-auto max-w-7xl px-4 lg:py-12 sm:px-6 lg:px-8">
+        <div class="bg-yellow-400">
             <!-- Hero Section -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
@@ -39,7 +39,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
                 <h2 class="text-3xl font-extrabold text-gray-900 text-center">Our Values</h2>
                 <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="bg-yellow-300 p-6 rounded-lg shadow">
+                    <div class="bg-yellow-200 p-6 rounded-lg shadow">
                         <div class="bg-yellow-200 p-2 rounded-full w-12 h-12 flex items-center justify-center">
                             <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
                             problems.</p>
                     </div>
 
-                    <div class="bg-yellow-300 p-6 rounded-lg shadow">
+                    <div class="bg-yellow-200 p-6 rounded-lg shadow">
                         <div class="bg-yellow-200 p-2 rounded-full w-12 h-12 flex items-center justify-center">
                             <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +66,7 @@
                             perspectives.</p>
                     </div>
 
-                    <div class="bg-yellow-300 p-6 rounded-lg shadow">
+                    <div class="bg-yellow-200 p-6 rounded-lg shadow">
                         <div class="bg-yellow-200 p-2 rounded-full w-12 h-12 flex items-center justify-center">
                             <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

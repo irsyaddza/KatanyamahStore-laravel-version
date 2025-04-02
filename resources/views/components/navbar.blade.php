@@ -56,7 +56,7 @@
                 <div class="ml-4 flex items-center md:ml-6">
                     <!-- Order Button -->
                     <a href="login" class="mr-4 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium rounded-md px-4 py-2 transition-all duration-200 transform hover:scale-105 shadow-md">
-                        Order Now
+                        Login
                     </a>
                     
                     <!-- Profile dropdown with improved styling -->

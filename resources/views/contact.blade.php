@@ -1,7 +1,7 @@
 <x-layout>
     <div class="bg-yellow-400">
         <!-- Hero Section -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-12">
             <div class="text-center">
                 <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
                     Contact Us</h1>

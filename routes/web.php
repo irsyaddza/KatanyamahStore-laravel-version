@@ -7,6 +7,9 @@ use App\Models\About;
 use App\Models\Contact;
 use App\Models\Pricing;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -22,13 +25,17 @@ Route::get('/pricing', function () {
 });
 
 Route::get('/showroom', function () {
-    return view('showroom', ['skin' => Skin::all()]);
+    return view('showroom', ['skin' => Skin::SimplePaginate(6)]);
 });
 
 Route::get('/contact', function () {
     return view('contact', ['contact' => Contact::all()]);
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::get('/register', [RegisterController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);

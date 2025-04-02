@@ -77,8 +77,7 @@ class DatabaseSeeder extends Seeder
             'team_img' => 'https://www.upload.ee/image/17922172/skin7.png',
         ]);
 
-        Skin::Factory(100)->create();
-        Faq::Factory(10)->create();
+        Skin::Factory(30)->create();
 
         Pricing::create([
             'price_title' => 'Custom Skin',

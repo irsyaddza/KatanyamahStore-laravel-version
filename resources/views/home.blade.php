@@ -35,7 +35,7 @@
 
             <!-- Feature Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mb-12">
-                <div class="bg-yellow-200 bg-opacity-25 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white border-opacity-20 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-yellow-200 bg-opacity-25 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-800 border-opacity-20 transform transition-all duration-300 hover:scale-105">
                     <div class="w-12 h-12 bg-black bg-opacity-75 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
@@ -45,7 +45,7 @@
                     <p class="text-black text-opacity-75">Create unique characters that stand out in San Andreas</p>
                 </div>
                 
-                <div class="bg-yellow-200 bg-opacity-25 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white border-opacity-20 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-yellow-200 bg-opacity-25 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-800 border-opacity-20 transform transition-all duration-300 hover:scale-105">
                     <div class="w-12 h-12 bg-black bg-opacity-75 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -55,7 +55,7 @@
                     <p class="text-black text-opacity-75">Professional texture modifications for vehicles, objects, and environments</p>
                 </div>
                 
-                <div class="bg-yellow-200 bg-opacity-25 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-xl border border-white border-opacity-20 transform transition-all duration-300 hover:scale-105">
+                <div class="bg-yellow-200 bg-opacity-25 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-800 border-opacity-20 transform transition-all duration-300 hover:scale-105">
                     <div class="w-12 h-12 bg-black bg-opacity-75 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
