@@ -52,7 +52,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature2']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -63,7 +63,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature3']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -74,7 +74,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature4']}}</p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0">
@@ -85,7 +85,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature1']}}</p>
+                                <p class="ml-3 text-sm text-gray-700">{{ $Pricing['price_feature5']}}</p>
                             </li>
                         </ul>
                     </div>

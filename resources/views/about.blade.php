@@ -17,23 +17,21 @@
                 <div class="lg:flex lg:items-center lg:justify-between">
                     <div class="lg:w-1/2">
                         <h2 class="text-3xl font-extrabold text-gray-900">Our Story</h2>
+                        @foreach ($about as $About)
                         <p class="mt-4 text-lg text-gray-800">
-                            Founded in 2015, our company began with a simple idea: to create technology that
-                            makes a difference.
-                            What started as a small team of passionate developers has grown into a thriving
-                            company dedicated
-                            to excellence and innovation.
+                            {{$About['story']}}
                         </p>
                         <p class="mt-4 text-lg text-gray-800">
-                            Today, we continue to push boundaries and explore new frontiers in technology.
-                            Our journey is defined by continuous learning, adaptation, and a relentless pursuit
-                            of quality.
+                            {{$About['story2']}}
                         </p>
                     </div>
+                    @endforeach
+                    @foreach ($about as $About)
                     <div class="mt-10 lg:mt-0 lg:w-1/2 lg:pl-10">
-                        <img class="rounded-lg shadow-xl" src="https://via.placeholder.com/600x400"
+                        <img class="rounded-lg shadow-xl" src="{{ $About['story_img']}}"
                             alt="Our team working together">
                     </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -88,27 +86,19 @@
                 <h2 class="text-3xl font-extrabold text-gray-900 text-center">Meet Our Team</h2>
                 <p class="mt-5 max-w-xl mx-auto text-xl text-center text-gray-800">Talented individuals working
                     together to create amazing products.</p>
-
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+                    @foreach ($team as $Team)
                     <div class="text-center">
                         <div class="mx-auto h-40 w-40 rounded-full overflow-hidden">
-                            <img class="h-full w-full object-cover" src="https://via.placeholder.com/300x300"
-                                alt="Team member">
+                            <img class="h-full w-full object-cover" src="{{$Team['team_img']}}"
+                                alt="{{$Team['team_name']}}">
                         </div>
-                        <h3 class="mt-6 text-lg font-medium text-gray-900">Sarah Johnson</h3>
-                        <p class="text-indigo-600">CEO & Founder</p>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">{{$Team['team_name']}}</h3>
+                        <p class="text-indigo-600">{{$Team['team_rank']}}</p>
                     </div>
-
-                    <div class="text-center">
-                        <div class="mx-auto h-40 w-40 rounded-full overflow-hidden">
-                            <img class="h-full w-full object-cover" src="https://via.placeholder.com/300x300"
-                                alt="Team member">
-                        </div>
-                        <h3 class="mt-6 text-lg font-medium text-gray-900">Michael Chen</h3>
-                        <p class="text-indigo-600">CTO</p>
-                    </div>
-
+                    @endforeach
                 </div>
+                
             </div>
         </div>
     </div>

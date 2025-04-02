@@ -2,6 +2,8 @@
 
 use App\Models\Faq;
 use App\Models\Skin;
+use App\Models\Team;
+use App\Models\About;
 use App\Models\Contact;
 use App\Models\Pricing;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', ['about' => About::all()], ['team' => Team::all()]);
 });
 
 Route::get('/pricing', function () {
