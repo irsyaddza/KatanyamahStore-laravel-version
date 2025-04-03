@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminPricingController;
+use App\Http\Controllers\AdminShowroomController;
 
 Route::get('/', function () {
     return view('home');
@@ -69,4 +70,5 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard.admin', compact('stats'));
 })->name('dashboard.admin');
 
-Route::resource('/dashboard/pricing', AdminPricingController::class)->middleware('auth');
+Route::resource('/dashboard/pricing', AdminPricingController::class)->middleware(['auth', 'admin']);
+Route::resource('/dashboard/showroom', AdminShowroomController::class)->middleware(['auth', 'admin']);

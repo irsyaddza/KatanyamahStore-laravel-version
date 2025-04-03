@@ -280,7 +280,7 @@
                         Cancel
                     </button>
                     <button type="submit"
-                        class="w-full sm:w-auto px-6 py-2 bg-yellow-400 rounded-md text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        class="w-full sm:w-auto px-6 py-2 bg-yellow-600 rounded-md text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
                         {{ isset($editPricing) ? 'Update Pricing' : 'Save Pricing' }}
                     </button>
                 </div>
@@ -291,7 +291,7 @@
         <div class="hidden sm:block">
             <button 
                 @click="tab = tab === 'list' ? 'form' : 'list'"
-                class="fixed bottom-8 right-8 bg-yellow-400 text-white p-4 rounded-full shadow-lg hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2">
+                class="fixed bottom-8 right-8 bg-yellow-600 text-white p-4 rounded-full shadow-lg hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2">
                 <svg x-show="tab === 'list'" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>

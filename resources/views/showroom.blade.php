@@ -3,9 +3,26 @@
         x-data="{ 
             showFilter: false,
             availabilityFilter: 'all',
-            filteredProducts: []
+            filteredProducts: [],
+            noProductsAvailable: false
         }"
-        x-init="filteredProducts = []"
+        x-init="
+            filteredProducts = [];
+            $watch('availabilityFilter', function() {
+                // Check if there are any products matching the filter
+                let hasProducts = false;
+                
+                if (availabilityFilter === 'all') {
+                    hasProducts = {{ count($skin) > 0 ? 'true' : 'false' }};
+                } else if (availabilityFilter === 'available') {
+                    hasProducts = {{ $skin->where('status', 1)->count() > 0 ? 'true' : 'false' }};
+                } else if (availabilityFilter === 'soldout') {
+                    hasProducts = {{ $skin->where('status', 0)->count() > 0 ? 'true' : 'false' }};
+                }
+                
+                noProductsAvailable = !hasProducts;
+            })
+        "
         class="container mx-auto px-4 py-6 lg:py-12"
     >
         <!-- Header Section with animated underline -->
@@ -71,8 +88,37 @@
             </div>
         </div>
 
+        <!-- Empty state message -->
+        <div 
+            x-show="noProductsAvailable" 
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform translate-y-4"
+            x-transition:enter-end="opacity-100 transform translate-y-0"
+            class="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center mx-auto my-8 max-w-md"
+        >
+            <div class="flex flex-col items-center">
+                <svg class="w-16 h-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">No products found</h3>
+                <p class="text-gray-600 mb-4" x-text="availabilityFilter === 'available' ? 'There are currently no available products in our collection.' : 'There are currently no sold out products in our collection.'"></p>
+                <button 
+                    @click="availabilityFilter = 'all'" 
+                    class="inline-flex items-center px-4 py-2 bg-yellow-400 rounded-md text-white hover:bg-yellow-500 transition-colors duration-200"
+                >
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                    View All Products
+                </button>
+            </div>
+        </div>
+
         <!-- Products Grid - 1 column on small, 2 on medium, 3 on large, 4 on xl -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 px-2 md:px-8 lg:px-20">
+        <div 
+            x-show="!noProductsAvailable"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 px-2 md:px-8 lg:px-20"
+        >
             @foreach ($skin as $Skin)
                 <div
                     x-show="availabilityFilter === 'all' || (availabilityFilter === 'available' && {{ $Skin['status'] }} === 1) || (availabilityFilter === 'soldout' && {{ $Skin['status'] }} === 0)"
@@ -101,8 +147,8 @@
                         <!-- Image with hover effect -->
                         <div class="h-48 sm:h-56 md:h-64 p-4 overflow-hidden">
                             <img 
-                                src="{{ $Skin['img_url'] }}" 
-                                alt="{{ $Skin['name'] }}"
+                                src="{{ asset('storage/' . $Skin->img_url) }}" 
+                                alt="{{ $Skin->name }}"
                                 class="object-contain w-full h-full transition-transform duration-500 group-hover:scale-110"
                                 loading="lazy"
                             >
@@ -126,7 +172,10 @@
         </div>
 
         <!-- Pagination with better mobile styling -->
-        <div class="px-4 sm:px-8 md:px-16 mt-8 mb-4">
+        <div 
+            x-show="!noProductsAvailable && availabilityFilter === 'all'"
+            class="px-4 sm:px-8 md:px-16 mt-8 mb-4"
+        >
             {{ $skin->links() }}
         </div>
     </div>

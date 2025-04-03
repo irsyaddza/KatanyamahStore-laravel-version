@@ -77,12 +77,12 @@ class DatabaseSeeder extends Seeder
             'team_img' => 'https://www.upload.ee/image/17922172/skin7.png',
         ]);
 
-        Skin::Factory(30)->create();
+        // Skin::Factory(30)->create();
 
         Pricing::create([
             'price_title' => 'Custom Skin',
             'price_desc' => 'Make your own custom skin',
-            'price' => 'Rp20.000',
+            'price' => '20000',
             'price_feature1' => 'Full request',
             'price_feature2' => 'Cheap price',
             'price_feature3' => 'Good quality',
@@ -92,7 +92,7 @@ class DatabaseSeeder extends Seeder
         Pricing::create([
             'price_title' => 'Environtment',
             'price_desc' => 'Make your own custom skin',
-            'price' => 'Rp20.000+',
+            'price' => '20000',
             'price_feature1' => 'Full request',
             'price_feature2' => 'Cheap price',
             'price_feature3' => 'Good quality',
@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
         Pricing::create([
             'price_title' => 'Retexture & Headswap',
             'price_desc' => 'Make your own custom skin',
-            'price' => 'Rp10.000',
+            'price' => '10000',
             'price_feature1' => 'Full request',
             'price_feature2' => 'Cheap price',
             'price_feature3' => 'Good quality',
