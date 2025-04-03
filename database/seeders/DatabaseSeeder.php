@@ -109,5 +109,17 @@ class DatabaseSeeder extends Seeder
             'price_feature4' => 'Warranty',
             'price_feature5' => 'Fast respons',
         ]);
+
+        User::create([
+            'username' => 'irsyaddza',
+            'email' => 'irsyadza04@gmail.com',
+            'password' => 'Irsyad04.',
+            'is_admin' => '1',
+        ]);
+        User::create([
+            'username' => 'noadmin',
+            'email' => 'irsyadzainul4@gmail.com',
+            'password' => 'noadmin',
+        ]);
     }
 }

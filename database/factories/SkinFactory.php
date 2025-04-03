@@ -18,7 +18,7 @@ class SkinFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'img_url' => fake()->imageUrl(800, 600, 'animals', true),
+            'img_url' => 'https://www.upload.ee/image/17925315/skin10.png',
             'status' => fake()->randomElement(['1', '0'])
         ];
     }

@@ -21,12 +21,22 @@ class LoginController extends Controller
             'password' => 'required|max:255|min:6'
         ]);
 
-        if(Auth::attempt($credentials))
-        {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
 
         return back()->with('loginError', 'Login Failed!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
