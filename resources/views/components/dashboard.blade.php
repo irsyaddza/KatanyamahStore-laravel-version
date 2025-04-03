@@ -9,19 +9,23 @@
     <title>Katanyamah Store | Dashboard</title>
 </head>
 
-<body class="h-full">
-    <div class="flex flex-col min-h-screen">
-        <x-navbar></x-navbar>
+<!-- Layout utama - resources/views/layouts/app.blade.php atau file layout Anda -->
+<body class="min-h-screen bg-yellow-400">
+    <!-- Navbar tetap di atas -->
+    <x-navbar></x-navbar>
+    
+    <!-- Struktur konten utama dengan sidebar -->
+    <div class="flex min-h-[calc(100vh-64px)]">
+        <!-- Sidebar -->
+        <x-sidebar></x-sidebar>
         
-        <div class="flex flex-1">
-            <x-sidebar></x-sidebar>
-            
-            <main class="flex-1">
-                {{ $slot }}
-            </main>
-        </div>
-        
-        <x-footer></x-footer>
+        <!-- Konten utama -->
+        <main class="flex-1 p-6 overflow-y-auto">
+            {{ $slot }}
+        </main>
     </div>
+    
+    <!-- Footer (jika ada) -->
+    <x-footer></x-footer>
 </body>
 </html>

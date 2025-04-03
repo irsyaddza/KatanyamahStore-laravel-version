@@ -1,80 +1,133 @@
 <x-layout>
-    <div class="container mx-auto px-4 lg:py-12">
-        <!-- Header Section -->
-        <div class="mb-8 text-center ">
-            <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Our Collection
+    <div 
+        x-data="{ 
+            showFilter: false,
+            availabilityFilter: 'all',
+            filteredProducts: []
+        }"
+        x-init="filteredProducts = []"
+        class="container mx-auto px-4 py-6 lg:py-12"
+    >
+        <!-- Header Section with animated underline -->
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+                Our Collection
             </h1>
-            <div class="w-24 h-1 bg-gray-800 mx-auto mb-4 rounded-full"></div>
-            <p class="mt-5 max-w-xl mx-auto text-xl text-gray-800">Discover our exclusive collection of premium products
-                designed just for you.</p>
+            <div class="w-16 md:w-24 h-1 bg-yellow-400 mx-auto my-4 rounded-full"></div>
+            <p class="mt-3 max-w-xl mx-auto text-base md:text-lg text-gray-700">
+                Discover our exclusive collection of premium products designed just for you.
+            </p>
         </div>
 
-        <!-- Products Grid - 1 column on small screens, 2 on medium, 3 on large screens -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:px-20">
+        <!-- Mobile filter button -->
+        <div class="lg:hidden mb-4 px-4">
+            <button 
+                @click="showFilter = !showFilter" 
+                class="w-full flex items-center justify-between px-4 py-2 bg-yellow-100 rounded-lg border border-yellow-200 text-gray-700"
+            >
+                <span class="font-medium">Filter Products</span>
+                <svg 
+                    :class="{'rotate-180': showFilter}"
+                    class="w-5 h-5 transition-transform duration-200" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Filter options -->
+        <div 
+            :class="{'hidden': !showFilter}"
+            class="lg:block mb-6 bg-white rounded-lg shadow-sm p-4 mx-4 lg:mx-20"
+        >
+            <div class="flex flex-wrap items-center gap-4">
+                <span class="font-medium text-gray-700">Availability:</span>
+                <div class="flex flex-wrap gap-2">
+                    <button 
+                        @click="availabilityFilter = 'all'" 
+                        :class="{'bg-yellow-400': availabilityFilter === 'all', 'bg-gray-200 hover:bg-gray-300': availabilityFilter !== 'all'}"
+                        class="px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+                    >
+                        All
+                    </button>
+                    <button 
+                        @click="availabilityFilter = 'available'" 
+                        :class="{'bg-yellow-400': availabilityFilter === 'available', 'bg-gray-200 hover:bg-gray-300': availabilityFilter !== 'available'}"
+                        class="px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+                    >
+                        Available
+                    </button>
+                    <button 
+                        @click="availabilityFilter = 'soldout'" 
+                        :class="{'bg-yellow-400': availabilityFilter === 'soldout', 'bg-gray-200 hover:bg-gray-300': availabilityFilter !== 'soldout'}"
+                        class="px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+                    >
+                        Sold Out
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid - 1 column on small, 2 on medium, 3 on large, 4 on xl -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 px-2 md:px-8 lg:px-20">
             @foreach ($skin as $Skin)
                 <div
-                    class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:scale-105 border border-gray-800">
-                    <!-- Badge for status (top right corner) -->
-                    <div class="relative">
-                        @if ($Skin['status'] == 1)
-                            <div
-                                class="absolute top-4 right-4 z-10 inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-green-400 to-green-600 text-white text-sm font-medium shadow-md">
-                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                Available
-                            </div>
-                        @else
-                            <div
-                                class="absolute top-4 right-4 z-10 inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-red-400 to-red-600 text-white text-sm font-medium shadow-md">
-                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                Sold Out
-                            </div>
-                        @endif
+                    x-show="availabilityFilter === 'all' || (availabilityFilter === 'available' && {{ $Skin['status'] }} === 1) || (availabilityFilter === 'soldout' && {{ $Skin['status'] }} === 0)"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 transform scale-95"
+                    x-transition:enter-end="opacity-100 transform scale-100"
+                    class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
+                >
+                    <!-- Product Image Container -->
+                    <div class="relative overflow-hidden bg-yellow-50">
+                        <!-- Status badge -->
+                        <div class="absolute top-0 right-0 z-10 m-2">
+                            @if ($Skin['status'] == 1)
+                                <div class="flex items-center px-2 py-1 rounded-full bg-green-100 border border-green-200">
+                                    <div class="w-2 h-2 rounded-full bg-green-500 mr-1 animate-pulse"></div>
+                                    <span class="text-xs font-medium text-green-700">Available</span>
+                                </div>
+                            @else
+                                <div class="flex items-center px-2 py-1 rounded-full bg-red-100 border border-red-200">
+                                    <div class="w-2 h-2 rounded-full bg-red-500 mr-1"></div>
+                                    <span class="text-xs font-medium text-red-700">Sold Out</span>
+                                </div>
+                            @endif
+                        </div>
 
-                        <!-- Product Image with improved presentation -->
-                        <div class="relative overflow-hidden bg-yellow-200">
-                            <!-- Yellow accent on top -->
-                            <div class="absolute top-0 left-0 w-full h-3 bg-yellow-200"></div>
-
-                            <!-- Image with shadow effect -->
-                            <div class="h-64 p-6">
-                                <img src="{{ $Skin['img_url'] }}" alt="{{ $Skin['name'] }}"
-                                    class="object-contain w-full h-full transition-transform duration-300 hover:scale-110"
-                                    loading="lazy">
-                            </div>
+                        <!-- Image with hover effect -->
+                        <div class="h-48 sm:h-56 md:h-64 p-4 overflow-hidden">
+                            <img 
+                                src="{{ $Skin['img_url'] }}" 
+                                alt="{{ $Skin['name'] }}"
+                                class="object-contain w-full h-full transition-transform duration-500 group-hover:scale-110"
+                                loading="lazy"
+                            >
                         </div>
                     </div>
 
-                    <!-- Product Details -->
-                    <div class="p-4 md:p-6 bg-gradient-to-b from-yellow-200 to-yellow-100">
-                        <h3 class="text-gray-800 font-bold text-xl mb-3 text-center truncate">{{ $Skin['name'] }}</h3>
-                        <div class="h-10 overflow-hidden">
-                            <p class="text-sm text-gray-600 text-center">{{ Str::limit($Skin['name'], 50) }}</p>
-                        </div>
-
-                        <!-- Additional details can be added here -->
-                        <div class="flex justify-center mt-4">
-                            <button
-                                class="px-6 py-2 bg-yellow-400 text-gray-800 font-medium rounded-full transform transition hover:bg-yellow-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 shadow-md">
-                                View Details
-                            </button>
+                    <!-- Product title area with yellow accent -->
+                    <div class="relative">
+                        <!-- Yellow accent bar -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-yellow-400"></div>
+                        
+                        <!-- Product title -->
+                        <div class="p-4 pt-5">
+                            <h3 class="text-gray-800 font-bold text-lg text-center line-clamp-2">
+                                {{ $Skin['name'] }}
+                            </h3>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        <div class="px-16 my-5">
+
+        <!-- Pagination with better mobile styling -->
+        <div class="px-4 sm:px-8 md:px-16 mt-8 mb-4">
             {{ $skin->links() }}
         </div>
-
     </div>
 </x-layout>

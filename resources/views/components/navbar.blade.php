@@ -82,16 +82,10 @@
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                             tabindex="-1">
                             <!-- Menggunakan pointer-events-auto untuk memastikan semua elemen di dalamnya bisa di-klik -->
-                            <div class="pointer-events-auto">
-                                <a href="#"
-                                    class="block w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-yellow-400 transition-colors"
-                                    role="menuitem" tabindex="-1">Your Profile</a>
+                            <div class="pointer-events-auto">                                
                                 <a href="/dashboard"
                                     class="block w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-yellow-400 transition-colors"
-                                    role="menuitem" tabindex="-1">My Dashboard</a>
-                                <a href="#"
-                                    class="block w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-yellow-400 transition-colors"
-                                    role="menuitem" tabindex="-1">Settings</a>
+                                    role="menuitem" tabindex="-1">My Dashboard</a>       
                                 <form action="/logout" method="POST" class="block w-full">
                                     @csrf
                                     <button type="submit"

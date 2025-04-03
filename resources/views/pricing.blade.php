@@ -18,7 +18,7 @@
                         <h3 class="text-gray-800 font-medium text-lg">{{ $Pricing['price_title'] }}</h3>
                         <p class="text-grey-800 mt-2">{{ $Pricing['price_desc'] }}</p>
                         <div class="mt-4 flex items-baseline">
-                            <span class="text-5xl font-extrabold tracking-tight text-gray-900">{{ $Pricing['price'] }}</span>
+                            <span class="text-5xl font-extrabold tracking-tight text-gray-900">Rp{{ number_format($Pricing['price'], 0, ',', '.') }}</span>
                             <div class="ml-1 flex flex-col">
                                 <span class="text-sm font-medium text-grey-800">Rp</span>
                                 <span class="text-sm font-medium text-grey-800">per request</span>

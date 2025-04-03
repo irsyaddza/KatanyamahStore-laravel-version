@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\AdminPricingController;
 
 Route::get('/', function () {
     return view('home');
@@ -26,7 +26,7 @@ Route::get('/pricing', function () {
 });
 
 Route::get('/showroom', function () {
-    return view('showroom', ['skin' => Skin::SimplePaginate(6)]);
+    return view('showroom', ['skin' => Skin::SimplePaginate(4)]);
 });
 
 Route::get('/contact', function () {
@@ -69,4 +69,4 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard.admin', compact('stats'));
 })->name('dashboard.admin');
 
-Route::resource('/dashboard/admin', DashboardAdminController::class)->middleware('auth');
+Route::resource('/dashboard/pricing', AdminPricingController::class)->middleware('auth');
