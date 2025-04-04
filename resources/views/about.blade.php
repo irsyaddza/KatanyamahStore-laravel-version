@@ -320,7 +320,7 @@
                     <p class="text-lg text-yellow-900 mb-8 max-w-3xl mx-auto">
                         Join the Katanyamah community today and discover our exclusive collection of premium products.
                     </p>
-                    <a href="/collection"
+                    <a href="showroom"
                         class="inline-flex items-center px-6 py-3 bg-white text-yellow-600 font-bold rounded-full shadow-lg hover:bg-gray-50 transition-colors duration-300">
                         Browse Our Collection
                         <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

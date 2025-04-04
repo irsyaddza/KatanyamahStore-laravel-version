@@ -78,7 +78,7 @@
             <!-- Call to Action with Animation -->
             <div class="relative group">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-600 to-black opacity-75 rounded-full blur group-hover:opacity-100 transition duration-300"></div>
-                <a href="login"
+                <a href="index"
                    class="relative inline-flex items-center px-12 py-5 bg-black text-white text-2xl font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 shadow-lg group-hover:shadow-2xl">
                     <span class="mr-3">Order Now!</span>
                     <svg class="w-6 h-6 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

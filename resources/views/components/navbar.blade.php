@@ -37,25 +37,25 @@
                             {{ request()->is('/') ? 'border-yellow-500' : 'border-transparent hover:border-yellow-500' }}">
                             Home
                         </a>
-                        <a href="pricing"
+                        <a href="/pricing"
                             class="{{ request()->is('pricing') ? 'bg-yellow-500 text-gray-900 shadow-md' : 'text-gray-300 hover:bg-gray-700 hover:text-yellow-400' }} 
                             rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 border-b-2 
                             {{ request()->is('pricing') ? 'border-yellow-500' : 'border-transparent hover:border-yellow-500' }}">
                             Pricing
                         </a>
-                        <a href="showroom"
+                        <a href="/showroom"
                             class="{{ request()->is('showroom') ? 'bg-yellow-500 text-gray-900 shadow-md' : 'text-gray-300 hover:bg-gray-700 hover:text-yellow-400' }} 
                             rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 border-b-2 
                             {{ request()->is('showroom') ? 'border-yellow-500' : 'border-transparent hover:border-yellow-500' }}">
                             Showroom
                         </a>
-                        <a href="about"
+                        <a href="/about"
                             class="{{ request()->is('about') ? 'bg-yellow-500 text-gray-900 shadow-md' : 'text-gray-300 hover:bg-gray-700 hover:text-yellow-400' }} 
                             rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 border-b-2 
                             {{ request()->is('about') ? 'border-yellow-500' : 'border-transparent hover:border-yellow-500' }}">
                             About
                         </a>
-                        <a href="contact"
+                        <a href="/contact"
                             class="{{ request()->is('contact') ? 'bg-yellow-500 text-gray-900 shadow-md' : 'text-gray-300 hover:bg-gray-700 hover:text-yellow-400' }} 
                             rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 border-b-2 
                             {{ request()->is('contact') ? 'border-yellow-500' : 'border-transparent hover:border-yellow-500' }}">

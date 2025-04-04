@@ -70,5 +70,5 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard.admin', compact('stats'));
 })->name('dashboard.admin');
 
-Route::resource('/dashboard/pricing', AdminPricingController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/showroom', AdminShowroomController::class)->middleware(['auth', 'admin']);
+Route::resource('/dashboard/admin/pricing', AdminPricingController::class)->middleware(['auth', 'admin']);
+Route::resource('/dashboard/admin/showroom', AdminShowroomController::class)->middleware(['auth', 'admin']);

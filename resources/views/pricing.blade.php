@@ -186,7 +186,7 @@
         </div>
     </div>
     
-    <!-- Testimonials Section with Carousel -->
+    {{-- <!-- Testimonials Section with Carousel -->
     <div class="bg-gray-50 py-16 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div 
@@ -278,7 +278,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- FAQ Section with Improved Accordion -->
     <div class="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
@@ -376,7 +376,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col space-y-4 w-full md:w-auto">
-                        <a href="/login"
+                        <a href="index"
                             class="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-gray-900 text-lg font-bold shadow-lg hover:shadow-xl transform transition-all duration-200 hover:-translate-y-1">
                             Order Now
                             <svg class="ml-2 w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

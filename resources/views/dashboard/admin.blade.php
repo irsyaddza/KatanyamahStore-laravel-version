@@ -5,9 +5,9 @@
             currentDate: new Date().toLocaleDateString('id-ID', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}),
             stats: [
                 { label: 'Total Users', value: '1,284', icon: 'users' },
-                { label: 'Revenue', value: 'Rp 7,842,500', icon: 'currency' },
-                { label: 'Orders', value: '268', icon: 'shopping-cart' },
-                { label: 'Conversion', value: '5.28%', icon: 'chart' }
+                {{-- { label: 'Revenue', value: 'Rp 7,842,500', icon: 'currency' }, --}}
+                { label: 'Orders', value: '268', icon: 'shopping-cart' }
+                {{-- { label: 'Conversion', value: '5.28%', icon: 'chart' } --}}
             ]
         }"
         x-init="setInterval(() => { currentTime = new Date().toLocaleTimeString() }, 1000)"
@@ -136,14 +136,14 @@
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-                    <div class="bg-white rounded-lg shadow-md p-3 sm:p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
+                    {{-- <div class="bg-white rounded-lg shadow-md p-3 sm:p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
                         <div class="inline-flex items-center justify-center p-3 bg-yellow-100 rounded-full text-yellow-500 mb-4 group-hover:bg-yellow-200 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                         </div>
                         <h3 class="font-medium text-gray-700 group-hover:text-gray-900">Add Product</h3>
-                    </div>
+                    </div> --}}
                     
                     <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
                         <div class="inline-flex items-center justify-center p-3 bg-yellow-100 rounded-full text-yellow-500 mb-4 group-hover:bg-yellow-200 transition-colors duration-300">
@@ -151,7 +151,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                         </div>
-                        <h3 class="font-medium text-gray-700 group-hover:text-gray-900">New Order</h3>
+                        <h3 class="font-medium text-gray-700 group-hover:text-gray-900">Order List</h3>
                     </div>
                     
                     <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
@@ -163,14 +163,14 @@
                         <h3 class="font-medium text-gray-700 group-hover:text-gray-900">Manage Users</h3>
                     </div>
                     
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
+                    {{-- <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
                         <div class="inline-flex items-center justify-center p-3 bg-yellow-100 rounded-full text-yellow-500 mb-4 group-hover:bg-yellow-200 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                             </svg>
                         </div>
                         <h3 class="font-medium text-gray-700 group-hover:text-gray-900">Reports</h3>
-                    </div>
+                    </div> --}}
                     
                     <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
                         <div class="inline-flex items-center justify-center p-3 bg-yellow-100 rounded-full text-yellow-500 mb-4 group-hover:bg-yellow-200 transition-colors duration-300">
@@ -181,7 +181,7 @@
                         <h3 class="font-medium text-gray-700 group-hover:text-gray-900">Payments</h3>
                     </div>
                     
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
+                    {{-- <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-50 cursor-pointer group">
                         <div class="inline-flex items-center justify-center p-3 bg-yellow-100 rounded-full text-yellow-500 mb-4 group-hover:bg-yellow-200 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -189,7 +189,7 @@
                             </svg>
                         </div>
                         <h3 class="font-medium text-gray-700 group-hover:text-gray-900">Settings</h3>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

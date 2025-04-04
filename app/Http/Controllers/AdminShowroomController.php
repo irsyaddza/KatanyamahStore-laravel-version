@@ -13,7 +13,7 @@ class AdminShowroomController extends Controller
      */
     public function index()
     {
-        return view('dashboard/posts/showroom', [
+        return view('dashboard/admin/showroom', [
             'skins' => Skin::all()
         ]);
     }
@@ -23,7 +23,7 @@ class AdminShowroomController extends Controller
      */
     public function create()
     {
-        return view('dashboard/posts/showroom');
+        return view('dashboard/admin/showroom');
     }
 
     /**
@@ -33,17 +33,22 @@ class AdminShowroomController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:255',
-            'img_url' => 'required|image|file|max:8096',
+            'img_url' => 'required|image|file|max:1024', // Changed to 1024KB (1MB) limit
             'status' => 'required',
         ]);
 
         // Handle image upload
         if ($request->file('img_url')) {
-            $validatedData['img_url'] = $request->file('img_url')->store('post-images');
+            // Check file size manually as well (for added security)
+            if ($request->file('img_url')->getSize() > 1024 * 1024) {
+                return redirect()->back()->with('error', 'Image size must be less than 1MB!')->withInput();
+            }
+            
+            $validatedData['img_url'] = $request->file('img_url')->store('skin-images'); // Changed folder to skin-images
         }
 
         Skin::create($validatedData);
-        return redirect('/dashboard/showroom')->with('success', 'New skin has been added!');
+        return redirect('/dashboard/admin/showroom')->with('success', 'New skin has been added!');
     }
 
     /**
@@ -63,7 +68,7 @@ class AdminShowroomController extends Controller
         $skin = Skin::findOrFail($id);
         
         // Send data to the showroom page
-        return view('dashboard/posts/showroom', [
+        return view('dashboard/admin/showroom', [
             'skins' => Skin::all(),
             'editSkin' => $skin
         ]);
@@ -83,13 +88,18 @@ class AdminShowroomController extends Controller
 
         // Only require image if a new one is uploaded
         if ($request->file('img_url')) {
-            $rules['img_url'] = 'image|file|max:2048';
+            $rules['img_url'] = 'image|file|max:1024'; // Changed to 1024KB (1MB) limit
         }
 
         $validatedData = $request->validate($rules);
 
         // Handle image upload
         if ($request->file('img_url')) {
+            // Check file size manually as well (for added security)
+            if ($request->file('img_url')->getSize() > 1024 * 1024) {
+                return redirect()->back()->with('error', 'Image size must be less than 1MB!')->withInput();
+            }
+            
             // Delete old image if it exists
             if ($skin->img_url) {
                 Storage::delete($skin->img_url);
@@ -99,7 +109,7 @@ class AdminShowroomController extends Controller
 
         $skin->update($validatedData);
         
-        return redirect('/dashboard/showroom')->with('success', 'Skin has been updated!');
+        return redirect('/dashboard/admin/showroom')->with('success', 'Skin has been updated!');
     }
 
     /**
@@ -116,6 +126,6 @@ class AdminShowroomController extends Controller
         
         $skin->delete();
         
-        return redirect('/dashboard/showroom')->with('success', 'Skin has been deleted!');
+        return redirect('/dashboard/admin/showroom')->with('success', 'Skin has been deleted!');
     }
 }

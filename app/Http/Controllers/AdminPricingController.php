@@ -12,7 +12,7 @@ class AdminPricingController extends Controller
      */
     public function index()
     {
-        return view('dashboard/posts/pricing', [
+        return view('dashboard/admin/pricing', [
             'pricing' => Pricing::all()
         ]);
     }
@@ -22,7 +22,7 @@ class AdminPricingController extends Controller
      */
     public function create()
     {
-        return view('dashboard/posts/pricing');
+        return view('dashboard/admin/pricing');
     }
 
     /**
@@ -49,7 +49,7 @@ class AdminPricingController extends Controller
         ]);
 
         Pricing::create($validatedData);
-        return redirect('/dashboard/pricing')->with('success', 'New pricing plan has been added!');
+        return redirect('/dashboard/admin/pricing')->with('success', 'New pricing plan has been added!');
     }
 
     /**
@@ -70,7 +70,7 @@ class AdminPricingController extends Controller
         
         // Kirim data ke halaman pricing yang sama
         // Ini akan menampilkan form dengan data yang sudah ada
-        return view('dashboard/posts/pricing', [
+        return view('dashboard/admin/pricing', [
             'pricing' => Pricing::all(),
             'editPricing' => $pricing
         ]);
@@ -103,7 +103,7 @@ class AdminPricingController extends Controller
 
         $pricing->update($validatedData);
         
-        return redirect('/dashboard/pricing')->with('success', 'Pricing plan has been updated!');
+        return redirect('/dashboard/admin/pricing')->with('success', 'Pricing plan has been updated!');
     }
 
     /**
@@ -114,6 +114,6 @@ class AdminPricingController extends Controller
         $pricing = Pricing::findOrFail($id);
         $pricing->delete();
         
-        return redirect('/dashboard/pricing')->with('success', 'Pricing plan has been deleted!');
+        return redirect('/dashboard/admin/pricing')->with('success', 'Pricing plan has been deleted!');
     }
 }
