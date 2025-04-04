@@ -124,8 +124,8 @@
                 <span>Order List</span>
             </a>
 
-            <a @click="closeMobile" href="/dashboard/faqs"
-                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/faqs*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+            <a @click="closeMobile" href="/dashboard/admin/faq"
+                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/admin/faq*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                 <svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2"
@@ -202,8 +202,8 @@
                 <span>Order List</span>
             </a>
 
-            <a @click="closeDesktop" href="/dashboard/faqs"
-                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/faqs*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+            <a @click="closeDesktop" href="/dashboard/admin/faq"
+                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/admin/faq*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                 <svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2"

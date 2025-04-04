@@ -10,6 +10,7 @@ use App\Models\Pricing;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminFaqController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminPricingController;
 use App\Http\Controllers\AdminShowroomController;
@@ -72,3 +73,4 @@ Route::middleware(['auth'])->get('/dashboard', function () {
 
 Route::resource('/dashboard/admin/pricing', AdminPricingController::class)->middleware(['auth', 'admin']);
 Route::resource('/dashboard/admin/showroom', AdminShowroomController::class)->middleware(['auth', 'admin']);
+Route::resource('/dashboard/admin/faq', AdminFaqController::class)->middleware(['auth', 'admin']);
