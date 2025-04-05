@@ -42,7 +42,6 @@
              class="bg-white shadow-md rounded-lg p-4 sm:p-6 mb-8 max-w-6xl mx-auto overflow-hidden">
             <h2 class="text-xl font-semibold mb-4">About Section</h2>
 
-            <!-- Desktop View - Full Table -->
             <!-- Desktop View - Full Table (With Fixed Values Section) -->
             <div class="hidden md:block overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">

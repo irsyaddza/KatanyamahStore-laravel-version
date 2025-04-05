@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminFaqController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminTeamController;
 use App\Http\Controllers\AdminAboutController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminPricingController;
@@ -78,3 +79,4 @@ Route::resource('/dashboard/admin/showroom', AdminShowroomController::class)->mi
 Route::resource('/dashboard/admin/faq', AdminFaqController::class)->middleware(['auth', 'admin']);
 Route::resource('/dashboard/admin/contact', AdminContactController::class)->middleware(['auth', 'admin']);
 Route::resource('/dashboard/admin/about', AdminAboutController::class)->middleware(['auth', 'admin']);
+Route::resource('/dashboard/admin/team', AdminTeamController::class)->middleware(['auth', 'admin']);

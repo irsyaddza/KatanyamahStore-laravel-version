@@ -33,7 +33,7 @@ class AdminShowroomController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:255',
-            'img_url' => 'required|image|file|max:1024', // Changed to 1024KB (1MB) limit
+            'img_url' => 'required|image|file|max:10240', // Changed to 1024KB (1MB) limit
             'status' => 'required',
         ]);
 
