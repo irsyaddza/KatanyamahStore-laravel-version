@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Team extends Model
 {
     protected $table = "teams";
-    protected $fillable = ['team_name', 'team_rank', 'team_img'];
+    protected $fillable = ['team_name', 'team_rank', 'team_img', 'team_bio', 'team_instagram'];
     use HasFactory, Notifiable;
 }

@@ -63,19 +63,31 @@ class DatabaseSeeder extends Seeder
             also studying GTA San Andreas modding. And thats when Katanyamah Store started to enter the GTA San Andreas skin modding 
             market.',
             'story2' => 'Every day, the 2 modders of Katanyamah Store try to learn about modding the environment and vehicles, and to date they are still growing.',
-            'story_img' => 'https://www.upload.ee/image/17922172/skin7.png',
+            'story_img' => 'public\storage\about-images\0Gs7amGfErFM3cU8hC5pRMcZ7v6C1nFCiXoIl2BC.jpg',
+            'values1' => 'mengontol',
+            'title_values1' => 'mengontol',
+            'values2' => 'menggokil',
+            'title_values2' => 'menggokil',
+            'values3' => 'mengpoke',
+            'title_values3' => 'mengpoke',
+
         ]);
 
         Team::create([
             'team_name' => 'Abidin',
             'team_rank' => 'Modder',
             'team_img' => 'https://www.upload.ee/image/17922172/skin7.png',
+            'team_instagram' => 'https://www.instagram.com/_irsyad.za',
+            'team_bio' => 'https://www.instagram.com/_irsyad.za',
         ]);
         Team::create([
-            'team_name' => 'Nopal',
-            'team_rank' => 'Founder',
+            'team_name' => 'Abidin',
+            'team_rank' => 'Modder',
             'team_img' => 'https://www.upload.ee/image/17922172/skin7.png',
+            'team_instagram' => 'https://www.instagram.com/_irsyad.za',
+            'team_bio' => 'https://www.instagram.com/_irsyad.za',
         ]);
+        
 
         // Skin::Factory(30)->create();
 
@@ -120,6 +132,12 @@ class DatabaseSeeder extends Seeder
             'username' => 'noadmin',
             'email' => 'irsyadzainul4@gmail.com',
             'password' => 'noadmin',
+        ]);
+        User::create([
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'admin123',
+            'is_admin' => '1',
         ]);
     }
 }

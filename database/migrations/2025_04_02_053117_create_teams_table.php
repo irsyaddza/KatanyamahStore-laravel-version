@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('team_name');
             $table->string('team_rank');
             $table->string('team_img');
+            $table->string('team_bio');
+            $table->string('team_instagram');
             $table->timestamps();
         });
     }

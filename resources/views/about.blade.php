@@ -123,7 +123,7 @@
                             <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-yellow-300 rounded-full opacity-70">
                             </div>
                             <img class="rounded-lg shadow-xl relative z-10 w-full transform transition-transform duration-500 hover:scale-105"
-                                src="{{ $About['story_img'] }}" alt="Our team working together">
+                                src="{{ asset('storage/' . $About['story_img']) }}" alt="Our team working together">
                         </div>
                         @endforeach
                     </div>
@@ -152,6 +152,7 @@
 
                     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         <!-- Innovation Value Card -->
+                        @foreach ($about as $About)
                         <div x-intersect:enter="$el.classList.add('animate-fade-in-up')"
                             class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                             <div class="h-2 bg-yellow-400"></div>
@@ -164,9 +165,8 @@
                                             d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Innovation</h3>
-                                <p class="text-gray-600">We embrace new ideas and technologies to solve complex problems
-                                    and stay ahead of industry trends.</p>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ $About['title_values1'] ?? 'Value 1' }}</h3>
+                                <p class="text-gray-600">{{ Str::limit($About['values1'], 30) }}</p>
                             </div>
                         </div>
 
@@ -184,9 +184,8 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Collaboration</h3>
-                                <p class="text-gray-600">We believe in the power of teamwork and diverse perspectives
-                                    to create exceptional products and experiences.</p>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ $About['title_values2'] ?? 'Value 2' }}</h3>
+                                <p class="text-gray-600">{{ Str::limit($About['values2'], 30) }}</p>
                             </div>
                         </div>
 
@@ -204,12 +203,12 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <h3 class="text-2xl font-bold text-gray-900 mb-3">Integrity</h3>
-                                <p class="text-gray-600">We act with honesty, transparency, and respect in all that we
-                                    do, building trust with our customers and partners.</p>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ $About['title_values3'] ?? 'Value 3' }}</h3>
+                                <p class="text-gray-600">{{ Str::limit($About['values3'], 30) }}</p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
 
                 <!-- Wave separator -->

@@ -16,6 +16,12 @@ return new class extends Migration
             $table->text('story');
             $table->text('story2');
             $table->string('story_img');
+            $table->string('title_values1');
+            $table->text('values1');
+            $table->string('title_values2');
+            $table->text('values2');
+            $table->string('title_values3');
+            $table->text('values3');
             $table->timestamps();
         });
     }

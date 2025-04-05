@@ -97,8 +97,8 @@
                 <span>Showroom</span>
             </a>
 
-            <a @click="closeMobile" href="/dashboard/about"
-                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/about*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+            <a @click="closeMobile" href="/dashboard/admin/about"
+                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/admin/about*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                 <svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -133,6 +133,14 @@
                 </svg>
                 <span>FAQs</span>
             </a>
+            <a @click="closeMobile" href="/dashboard/admin/team"
+                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/admin/team*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span>Teams</span>
+            </a>        
         </nav>
     </aside>
 
@@ -175,8 +183,8 @@
                 <span>Showroom</span>
             </a>
 
-            <a @click="closeDesktop" href="/dashboard/about"
-                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/about*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+            <a @click="closeDesktop" href="/dashboard/admin/about"
+                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/admin/about*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
                 <svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -210,6 +218,15 @@
                         d="M8 9h1m3 0h4m-8 4h1m3 0h4M9.5 17h5M12 3c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 18.523 2 13 6.477 3 12 3z" />
                 </svg>
                 <span>FAQs</span>
+            </a>
+
+            <a @click="closeDesktop" href="/dashboard/admin/team"
+                class="mt-3 flex items-center px-4 py-2 rounded-md group {{ request()->is('dashboard/admin/team*') ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white' }}">
+                <svg class="mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span>Teams</span>
             </a>
         </nav>
     </aside>
