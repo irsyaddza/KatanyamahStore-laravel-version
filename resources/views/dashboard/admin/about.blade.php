@@ -507,10 +507,10 @@
 
     <script>
         document.addEventListener('alpine:init', () => {
-    Alpine.data('aboutManager', () => ({
-        activeTab: '{{ request()->is("*/edit") ? "form" : "list" }}',
+        Alpine.data('aboutManager', () => ({
+        activeTab: '{{ isset($editAbout) ? "form" : "list" }}',
         isEditMode: {{ isset($editAbout) ? 'true' : 'false' }},
-        formMethod: 'POST',
+        formMethod: '{{ isset($editAbout) ? "PUT" : "POST" }}',
         deleteItemId: null,
         deleteItemName: '',
         isDeleteModalOpen: false,
@@ -521,16 +521,16 @@
         },
         formData: {
             id: '{{ isset($editAbout) ? $editAbout->id : "" }}',
-            story: '{{ isset($editAbout) ? $editAbout->story : "" }}',
-            story2: '{{ isset($editAbout) ? $editAbout->story2 : "" }}',
+            story: `{{ isset($editAbout) ? addslashes($editAbout->story) : "" }}`,
+            story2: `{{ isset($editAbout) ? addslashes($editAbout->story2) : "" }}`,
             story_img: null,
             story_img_preview: '{{ isset($editAbout) ? asset("storage/" . $editAbout->story_img) : "" }}',
-            title_values1: '{{ isset($editAbout) ? $editAbout->title_values1 : "" }}',
-            values1: '{{ isset($editAbout) ? $editAbout->values1 : "" }}',
-            title_values2: '{{ isset($editAbout) ? $editAbout->title_values2 : "" }}',
-            values2: '{{ isset($editAbout) ? $editAbout->values2 : "" }}',
-            title_values3: '{{ isset($editAbout) ? $editAbout->title_values3 : "" }}',
-            values3: '{{ isset($editAbout) ? $editAbout->values3 : "" }}'
+            title_values1: `{{ isset($editAbout) ? addslashes($editAbout->title_values1) : "" }}`,
+            values1: `{{ isset($editAbout) ? addslashes($editAbout->values1) : "" }}`,
+            title_values2: `{{ isset($editAbout) ? addslashes($editAbout->title_values2) : "" }}`,
+            values2: `{{ isset($editAbout) ? addslashes($editAbout->values2) : "" }}`,
+            title_values3: `{{ isset($editAbout) ? addslashes($editAbout->title_values3) : "" }}`,
+            values3: `{{ isset($editAbout) ? addslashes($editAbout->values3) : "" }}`
         },
         errors: {
             story: null,
@@ -545,6 +545,10 @@
         },
         
         initialize() {
+            console.log('About Manager initialized');
+            console.log('activeTab:', this.activeTab);
+            console.log('isEditMode:', this.isEditMode);
+            
             // Auto-dismiss notifications after 5 seconds
             if (this.notifications.success || this.notifications.error) {
                 setTimeout(() => {
@@ -663,7 +667,7 @@
                     }
                     break;
                 case 'story_img':
-                    if (!this.isEditMode && !this.formData.story_img) {
+                    if (!this.isEditMode && !this.formData.story_img && !this.formData.story_img_preview) {
                         this.errors.story_img = 'Image is required';
                     }
                     break;
@@ -689,7 +693,7 @@
             });
             
             // Validate image only for new records
-            if (!this.isEditMode) {
+            if (!this.isEditMode && !this.formData.story_img_preview) {
                 this.validateField('story_img');
                 if (this.errors.story_img) isValid = false;
             }
@@ -747,23 +751,17 @@
             form.appendChild(story2Input);
             
             // Values fields
-            const values1Input = document.createElement('input');
-            values1Input.type = 'hidden';
-            values1Input.name = 'values1';
-            values1Input.value = this.formData.values1;
-            form.appendChild(values1Input);
-            
             const title_values1Input = document.createElement('input');
             title_values1Input.type = 'hidden';
             title_values1Input.name = 'title_values1';
             title_values1Input.value = this.formData.title_values1;
             form.appendChild(title_values1Input);
             
-            const values2Input = document.createElement('input');
-            values2Input.type = 'hidden';
-            values2Input.name = 'values2';
-            values2Input.value = this.formData.values2;
-            form.appendChild(values2Input);
+            const values1Input = document.createElement('input');
+            values1Input.type = 'hidden';
+            values1Input.name = 'values1';
+            values1Input.value = this.formData.values1;
+            form.appendChild(values1Input);
             
             const title_values2Input = document.createElement('input');
             title_values2Input.type = 'hidden';
@@ -771,17 +769,23 @@
             title_values2Input.value = this.formData.title_values2;
             form.appendChild(title_values2Input);
             
-            const values3Input = document.createElement('input');
-            values3Input.type = 'hidden';
-            values3Input.name = 'values3';
-            values3Input.value = this.formData.values3;
-            form.appendChild(values3Input);
+            const values2Input = document.createElement('input');
+            values2Input.type = 'hidden';
+            values2Input.name = 'values2';
+            values2Input.value = this.formData.values2;
+            form.appendChild(values2Input);
             
             const title_values3Input = document.createElement('input');
             title_values3Input.type = 'hidden';
             title_values3Input.name = 'title_values3';
             title_values3Input.value = this.formData.title_values3;
             form.appendChild(title_values3Input);
+            
+            const values3Input = document.createElement('input');
+            values3Input.type = 'hidden';
+            values3Input.name = 'values3';
+            values3Input.value = this.formData.values3;
+            form.appendChild(values3Input);
             
             // Image (only if a new one is selected)
             if (this.formData.story_img instanceof File) {

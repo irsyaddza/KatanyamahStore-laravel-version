@@ -74,9 +74,9 @@ class AdminAboutController extends Controller
     {
         $about = About::findOrFail($id);
         return view('dashboard/admin/about', [
-            'about' => About::all(),
-            'editAbout' => $about
-        ]);
+        'about' => About::all(),
+        'editAbout' => $about
+    ]); 
     }
 
     /**
