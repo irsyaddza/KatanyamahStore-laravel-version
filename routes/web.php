@@ -18,7 +18,10 @@ use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminPricingController;
 use App\Http\Controllers\AdminShowroomController;
 use App\Http\Controllers\AdminManageuserController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
+// Public routes
 Route::get('/', function () {
     return view('home');
 });
@@ -39,6 +42,7 @@ Route::get('/contact', function () {
     return view('contact', ['contact' => Contact::all()]);
 });
 
+// Authentication routes
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -46,8 +50,23 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-// Route untuk user biasa
-Route::middleware(['auth'])->get('/index', function () {
+// Email Verification Routes
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/index');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// Route untuk user biasa (fixed middleware syntax)
+Route::middleware(['auth', 'verified'])->get('/index', function () {
     // Cek apakah user adalah admin
     if (Auth::user()->is_admin == 1) {
         // Redirect ke dashboard admin
@@ -58,8 +77,8 @@ Route::middleware(['auth'])->get('/index', function () {
     return view('dashboard.index');
 })->name('dashboard.user');
 
-// Route untuk admin
-Route::middleware(['auth'])->get('/dashboard', function () {
+// Route untuk admin (add verified middleware to admin routes as well)
+Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
     // Tambahkan pengecekan tambahan untuk keamanan
     if (Auth::user()->is_admin != 1) {
         return redirect()->route('dashboard.user')
@@ -75,10 +94,13 @@ Route::middleware(['auth'])->get('/dashboard', function () {
     return view('dashboard.admin', compact('stats'));
 })->name('dashboard.admin');
 
-Route::resource('/dashboard/admin/pricing', AdminPricingController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/admin/showroom', AdminShowroomController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/admin/faq', AdminFaqController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/admin/contact', AdminContactController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/admin/about', AdminAboutController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/admin/team', AdminTeamController::class)->middleware(['auth', 'admin']);
-Route::resource('/dashboard/admin/manageuser', AdminManageuserController::class)->middleware(['auth', 'admin']);
+// Admin resource routes (added verified middleware)
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::resource('/dashboard/admin/pricing', AdminPricingController::class);
+    Route::resource('/dashboard/admin/showroom', AdminShowroomController::class);
+    Route::resource('/dashboard/admin/faq', AdminFaqController::class);
+    Route::resource('/dashboard/admin/contact', AdminContactController::class);
+    Route::resource('/dashboard/admin/about', AdminAboutController::class);
+    Route::resource('/dashboard/admin/team', AdminTeamController::class);
+    Route::resource('/dashboard/admin/manageuser', AdminManageuserController::class);
+});
