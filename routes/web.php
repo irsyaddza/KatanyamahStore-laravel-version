@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminAboutController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminPricingController;
 use App\Http\Controllers\AdminShowroomController;
+use App\Http\Controllers\AdminManageuserController;
 
 Route::get('/', function () {
     return view('home');
@@ -80,3 +81,4 @@ Route::resource('/dashboard/admin/faq', AdminFaqController::class)->middleware([
 Route::resource('/dashboard/admin/contact', AdminContactController::class)->middleware(['auth', 'admin']);
 Route::resource('/dashboard/admin/about', AdminAboutController::class)->middleware(['auth', 'admin']);
 Route::resource('/dashboard/admin/team', AdminTeamController::class)->middleware(['auth', 'admin']);
+Route::resource('/dashboard/admin/manageuser', AdminManageuserController::class)->middleware(['auth', 'admin']);

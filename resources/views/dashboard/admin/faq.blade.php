@@ -163,19 +163,6 @@
                     <p class="mt-1 text-sm text-red-500" x-show="errors.answer" x-text="errors.answer"></p>
                 </div>
 
-                {{-- <div>
-                    <label for="sort_order" class="block text-gray-700 font-medium mb-2">
-                        Sort Order
-                    </label>
-                    <input type="number" 
-                        name="sort_order" 
-                        id="sort_order"
-                        x-model="formData.sort_order"
-                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                        placeholder="e.g. 1 (higher numbers will appear later)">
-                    <p class="mt-1 text-sm text-gray-400">Optional: Set display order (lower numbers appear first)</p>
-                </div> --}}
-
                 <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-4"
                      :class="{'shake-animation': isShaking}">
                     <button type="button" 
