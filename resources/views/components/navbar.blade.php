@@ -22,9 +22,13 @@
                     <div class="relative">
                         <div class="absolute inset-0 bg-yellow-400 rounded-full blur-md opacity-30 animate-pulse"></div>
                         <img class="size-15 relative z-10 transform transition-transform duration-300 hover:scale-110"
-                            src="https://www.upload.ee/image/17920337/logo2.png" alt="logo">
+                            src="{{ asset('logo.png') }}" alt="logo">
                     </div>
-                    <span class="text-white font-bold ml-2 text-lg tracking-tight">KatanyamahStore</span>
+                    {{-- <span class="text-white font-bold ml-2 text-lg tracking-tight">KatanyamahStore</span> --}}
+                    <div class="text-white font-bold ml-2 text-lg tracking-tight">
+                        <a href="/">KatanyamahStore</a>
+                    </div>
+                    
                 </div>
 
                 <!-- Desktop Navigation -->
